@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Datacom Internal Kudos System — Recognize and appreciate your colleagues">
+  <title>Kudos — Datacom Employee Portal</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌟</text></svg>">
+</head>
+<body>
+
+  <!-- ═══ Login Screen ═══ -->
+  <div id="login-screen" class="login-screen">
+    <div class="login-card">
+      <span class="logo">🌟</span>
+      <h1>Kudos</h1>
+      <p class="subtitle">Datacom Employee Recognition Portal</p>
+      <div class="form-group">
+        <label for="login-user-select">Sign in as</label>
+        <select id="login-user-select">
+          <option value="">Select your name…</option>
+        </select>
+      </div>
+      <button id="login-btn" class="btn btn-primary btn-full" disabled>Sign In</button>
+    </div>
+  </div>
+
+  <!-- ═══ Dashboard ═══ -->
+  <div id="dashboard" class="dashboard">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-inner">
+        <div class="header-brand">
+          <span>🌟</span>
+          <span>Kudos</span>
+        </div>
+        <div class="header-right">
+          <div class="user-badge">
+            <div id="header-avatar" class="avatar avatar-sm"></div>
+            <span id="header-user-name" class="user-name"></span>
+            <span id="header-admin-badge" class="admin-badge" style="display:none">Admin</span>
+          </div>
+          <button id="logout-btn" class="btn btn-ghost btn-sm">Logout</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <!-- Left: Kudos Form -->
+      <aside class="form-panel">
+        <div class="glass-card">
+          <div class="card-header">
+            <span class="icon">✨</span>
+            <h2>Send Kudos</h2>
+          </div>
+          <form id="kudos-form">
+            <div class="form-group">
+              <label for="recipient-select">Recipient</label>
+              <select id="recipient-select" required>
+                <option value="">Choose a colleague…</option>
+              </select>
+              <div id="recipient-error" class="error-message"></div>
+            </div>
+            <div class="form-group">
+              <label for="kudos-message">Your Message</label>
+              <textarea id="kudos-message" placeholder="Write something kind…" maxlength="500" required></textarea>
+              <div class="char-counter"><span id="char-count">0</span> / 500</div>
+              <div id="message-error" class="error-message"></div>
+            </div>
+            <button type="submit" id="submit-btn" class="btn btn-primary btn-full">
+              <span id="submit-text">Send Kudos 🎉</span>
+              <span id="submit-spinner" class="spinner" style="display:none"></span>
+            </button>
+          </form>
+        </div>
+      </aside>
+
+      <!-- Right: Feed -->
+      <section class="feed-panel">
+        <div class="feed-tabs">
+          <button id="tab-feed" class="feed-tab active" data-tab="feed">🏠 Recent Kudos</button>
+          <button id="tab-moderated" class="feed-tab" data-tab="moderated" style="display:none">🛡️ Moderated</button>
+        </div>
+
+        <div id="feed-list" class="feed-list">
+          <!-- Kudos cards rendered by JS -->
+        </div>
+
+        <div id="moderated-list" class="feed-list" style="display:none">
+          <!-- Hidden kudos rendered by JS -->
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ═══ Hide Modal ═══ -->
+  <div id="hide-modal" class="modal-overlay">
+    <div class="modal">
+      <h3>🛡️ Hide this Kudos</h3>
+      <div class="form-group">
+        <label for="hide-reason">Reason (optional)</label>
+        <textarea id="hide-reason" placeholder="Why is this being hidden?" maxlength="200"></textarea>
+      </div>
+      <div class="modal-actions">
+        <button id="hide-cancel" class="btn btn-ghost btn-sm">Cancel</button>
+        <button id="hide-confirm" class="btn btn-danger btn-sm">Hide Kudos</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ Delete Confirmation Modal ═══ -->
+  <div id="delete-modal" class="modal-overlay">
+    <div class="modal">
+      <h3>⚠️ Permanently Delete</h3>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: var(--space-md);">This action cannot be undone. The kudos will be permanently removed.</p>
+      <div class="modal-actions">
+        <button id="delete-cancel" class="btn btn-ghost btn-sm">Cancel</button>
+        <button id="delete-confirm" class="btn btn-danger btn-sm">Delete Forever</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ Toast Container ═══ -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

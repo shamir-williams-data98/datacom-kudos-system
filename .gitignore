@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+
+# SQLite database (generated at runtime)
+kudos.db
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# pytest
+.pytest_cache/
+
+# Existing data files (not part of Kudos feature)
+customers.csv
+transactions.csv
+customers_export.csv
+customers_export.json
+customer_summary.json
+metrics.json
+transactions.json

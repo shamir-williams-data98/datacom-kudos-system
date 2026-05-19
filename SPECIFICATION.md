@@ -4,6 +4,8 @@
 
 The Kudos System is an internal feature for the Datacom employee portal that enables team members to publicly recognize and appreciate their colleagues. It fosters a positive work culture by making appreciation visible across the organization.
 
+**Repository:** [https://github.com/shamir-williams-data98/datacom-kudos-system](https://github.com/shamir-williams-data98/datacom-kudos-system)
+
 ---
 
 ## Functional Requirements
